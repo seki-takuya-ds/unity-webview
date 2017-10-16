@@ -23,7 +23,7 @@ using UnityEngine;
 
 public class SampleWebView : MonoBehaviour
 {
-    public string Url;
+	public string Url;
     public GUIText status;
     WebViewObject webViewObject;
 
@@ -44,7 +44,9 @@ public class SampleWebView : MonoBehaviour
                 status.GetComponent<Animation>().Play();
             },
             enableWKWebView: true);
-        webViewObject.SetMargins(5, 100, 5, Screen.height / 4);
+		//webViewObject.SetMargins(5, 100, 5, Screen.height / 4);
+		Url = "http://karadauranai.com/";
+		webViewObject.SetMargins(0, 100, 0, 0);
         webViewObject.SetVisibility(true);
 
 #if !UNITY_WEBPLAYER
@@ -109,9 +111,9 @@ public class SampleWebView : MonoBehaviour
 #if !UNITY_WEBPLAYER
     void OnGUI()
     {
-        if (GUI.Button(new Rect(10, 10, 80, 80), "<")) {
+        if (GUI.Button(new Rect(10, 5, 160, 80), "<<")) {
             webViewObject.GoBack();
-        } else if (GUI.Button(new Rect(100, 10, 80, 80), ">")) {
+        } else if (GUI.Button(new Rect(190, 5, 160, 80), ">>")) {
             webViewObject.GoForward();
         }
     }
